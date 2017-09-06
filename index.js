@@ -1,9 +1,8 @@
 var http = require('http'),
     fs = require('fs'),
     picURL = 'https://goo.gl/dmZHRQ',
-    fileContent = '';
-
-var server = http.createServer();
+    fileContent = '',
+    server = http.createServer();
 
 fs.readFile('./index.html', 'utf-8', function(err, data) {
     if (err) {
