@@ -16,7 +16,7 @@ server.on('request', function(request, response) {
     response.setHeader("Content-Type", "text/html; charset=utf-8");
 
     if (request.method === 'GET' && request.url === '/') {
-        response.write(fileContent)
+        response.write(fileContent);
         response.end();
     } else {
         response.statusCode = 404;
