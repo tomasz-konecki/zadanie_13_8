@@ -1,10 +1,9 @@
-var http = require('http'),
+var server = require('http').createServer(),
     fs = require('fs'),
     picURL = 'https://goo.gl/dmZHRQ',
-    fileContent = '',
-    server = http.createServer();
+    fileContent = '';
 
-fs.readFile('./index.html', 'utf-8', function(err, data) {
+fs.readFile('./index.html', 'utf-8', (err, data) => {
     if (err) {
         throw err;
     } else {
@@ -12,8 +11,8 @@ fs.readFile('./index.html', 'utf-8', function(err, data) {
     }
 });
 
-server.on('request', function(request, response) {
-    response.setHeader("Content-Type", "text/html; charset=utf-8");
+server.on('request', (request, response) => {
+    response.setHeader('Content-Type', 'text/html; charset=utf-8');
 
     if (request.method === 'GET' && request.url === '/') {
         response.write(fileContent);
